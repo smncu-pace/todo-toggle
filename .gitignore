@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Build and package output
+dist/
+
+# Local operating-system files
+.DS_Store
+
+# Editor and log files
+.vscode/
+*.log

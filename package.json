@@ -1,0 +1,53 @@
+{
+  "name": "todo-toggle-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Minimal desktop Todo app with global hotkey Cmd+T (Electron + React).",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"cross-env ELECTRON_DEV=1 electron .\"",
+    "build": "vite build",
+    "test": "node --test",
+    "preview": "vite preview",
+    "pack": "npm run build && electron-builder --dir",
+    "dist:mac": "npm run build && electron-builder -m"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "electron-store": "^10.1.0",
+    "nanoid": "^5.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^32.1.2",
+    "electron-builder": "^25.1.8",
+    "vite": "^5.4.12",
+    "@vitejs/plugin-react": "^4.3.4"
+  },
+  "build": {
+    "appId": "com.local.todoToggleApp",
+    "productName": "TodoToggle",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ],
+      "hardenedRuntime": false
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "asar": true,
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
